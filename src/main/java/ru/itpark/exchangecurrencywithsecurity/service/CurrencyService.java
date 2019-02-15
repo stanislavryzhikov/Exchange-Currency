@@ -2,9 +2,7 @@ package ru.itpark.exchangecurrencywithsecurity.service;
 
 import org.springframework.stereotype.Service;
 import ru.itpark.exchangecurrencywithsecurity.entity.CurrencyEntity;
-import ru.itpark.exchangecurrencywithsecurity.entity.OperationEntity;
 import ru.itpark.exchangecurrencywithsecurity.repository.CurrencyRepository;
-import ru.itpark.exchangecurrencywithsecurity.repository.OperationRepository;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class CurrencyService {
 
     public CurrencyEntity findById(int id) {
         return repository.findById(id)
-                .orElseThrow(); // TODO: throw specific exception
+                .orElseThrow(); //
     }
 
     public void removeById(int id) {
@@ -32,11 +30,7 @@ public class CurrencyService {
     }
 
     public void add(CurrencyEntity entity) {
-        repository.save(entity); // TODO: add edit functionality
+        repository.save(entity); //
     }
-
-//    public void saveOperation(OperationEntity entity) {
-//        operationRepository.save(entity);
-//    }
 
 }

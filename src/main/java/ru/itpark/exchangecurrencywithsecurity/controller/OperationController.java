@@ -4,7 +4,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.itpark.exchangecurrencywithsecurity.entity.CurrencyEntity;
 import ru.itpark.exchangecurrencywithsecurity.entity.OperationEntity;
 import ru.itpark.exchangecurrencywithsecurity.service.CurrencyService;
 import ru.itpark.exchangecurrencywithsecurity.service.OperationService;

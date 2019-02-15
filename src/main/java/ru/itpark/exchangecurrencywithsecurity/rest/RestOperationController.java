@@ -1,9 +1,7 @@
 package ru.itpark.exchangecurrencywithsecurity.rest;
 
 import org.springframework.web.bind.annotation.*;
-import ru.itpark.exchangecurrencywithsecurity.entity.CurrencyEntity;
 import ru.itpark.exchangecurrencywithsecurity.entity.OperationEntity;
-import ru.itpark.exchangecurrencywithsecurity.service.CurrencyService;
 import ru.itpark.exchangecurrencywithsecurity.service.OperationService;
 
 import java.util.List;

@@ -10,8 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.itpark.exchangecurrencywithsecurity.entity.AccountEntity;
 import ru.itpark.exchangecurrencywithsecurity.repository.AccountRepository;
-import ru.itpark.exchangecurrencywithsecurity.entity.AccountEntity;
-import ru.itpark.exchangecurrencywithsecurity.repository.AccountRepository;
 
 @Primary // выбери меня (при наличии нескольких бинов, реализующих интерфейс UserDetails, будет выбран мой)
 @Service // @Component -> bean -> accountService
@@ -30,7 +28,6 @@ public class AccountService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(s));
     }
 
-    // TODO: можете посмотреть на spring-security-thymeleaf, вместо написания своих методов
     public boolean isAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         // anonymous
@@ -48,6 +45,5 @@ public class AccountService implements UserDetailsService {
     public boolean isOwned(int id) {
         AccountEntity entity = (AccountEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return entity.getId() == 1;
-        // TODO: вы можете построить здесь какую угодно логику
     }
 }
