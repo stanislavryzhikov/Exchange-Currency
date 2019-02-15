@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Покупка валюты')">
+
+    <script>
+        function calculateAmount() {
+            var operationRateValue = parseFloat(document.getElementById('operationRate').value);
+            var countValue = parseFloat(document.getElementById('count').value);
+
+            var amountValue = operationRateValue * countValue;
+
+            document.getElementById('amount').innerHTML = amountValue.toFixed(2);
+        }
+
+        function calculateCount() {
+            var operationRateValue = parseFloat(document.getElementById('operationRate').value);
+            var amountValue = parseFloat(document.getElementById('amount').value);
+
+            var countValue = amountValue / operationRateValue;
+
+            document.getElementById('count').innerHTML = countValue.toFixed(2);
+        }
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>Покупка валюты</h1>
+            <form data-th-action="@{/operations/{id}/buy(id=${currency.id})}" method="post">
+                <input style="visibility: hidden" id="type" name="type" value="Покупка валюты">
+                <input style="visibility: hidden" id="currency" name="currency" data-th-value="${currency.name}">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.name}" placeholder="Название валюты" id="name" name="name"
+                               type="text" class="validate" required readonly>
+                        <label for="name">Валюта</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.centralBankRate}" placeholder="Курс ЦБ РФ"
+                               id="centralBankRate" name="centralBankRate"
+                               type="text" class="validate" required readonly>
+                        <label for="centralBankRate">Курс ЦБ РФ</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.purchasePrice}" placeholder="Цена покупки"
+                               id="operationRate" name="operationRate"
+                               type="text" class="validate" required readonly>
+                        <label for="operationRate">Цена покупки</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="count" name="count"
+                               type="text" class="validate" onkeyup="calculateAmount();" required>
+                        <label for="count">Количесво</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="amount" name="amount"
+                               type="text" class="validate" onkeyup="calculateCount();" required>
+                        <label for="amount">Сумма операции</label>
+                    </div>
+                </div>
+                <h1>Клиент</h1>
+                <h2>Ф.И.О.</h2>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Введите фамилию" id="lastName" name="lastName" type="text" class="validate"
+                               required>
+                        <label for="lastName">Фамилия</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Введите имя" id="firstName" name="firstName" type="text" class="validate"
+                               required>
+                        <label for="firstName">Имя</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Введите отчество" id="middleName" name="middleName" type="text"
+                               class="validate"
+                               required>
+                        <label for="middleName">Отчество</label>
+                    </div>
+                </div>
+                <h2>Серия и номер паспорта</h2>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Введите серию паспорта" id="seriesDoc" name="seriesDoc" type="text"
+                               class="validate"
+                               required>
+                        <label for="seriesDoc">Серия паспорта</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Введите номер паспорта" id="numberDoc" name="numberDoc" type="text"
+                               class="validate"
+                               required>
+                        <label for="numberDoc">Номер паспорта</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Введите комментарий" id="content" name="content" type="text"
+                               class="validate">
+                        <label for="content">Комментарий</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn" type="submit">Завершить операцию</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>

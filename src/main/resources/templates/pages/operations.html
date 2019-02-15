@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Операции')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>Операции</h1>
+            <ul class="collection">
+                <li class="collection-item" data-th-each="operation : ${operations}">
+                    <a data-th-href="@{/operations/{id} (id=${operation.id}) }">
+                        <span data-th-text="${operation.type}"></span>
+                        <span data-th-text="${operation.count}"></span>
+                        <span data-th-text="${operation.currency}"></span>
+                        <span>. Клиент:</span>
+                        <span data-th-text="${operation.lastName}"></span>
+                        <span data-th-text="${operation.firstName}"></span>
+                    </a>
+                </li>
+            </ul>
+            <a data-th-href="@{/currencies}" class="waves-effect waves-light btn">Валюты</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+
+</body>
+</html>

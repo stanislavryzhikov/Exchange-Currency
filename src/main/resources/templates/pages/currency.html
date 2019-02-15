@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title=${currency.name})"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title" data-th-text="${currency.name}"></span>
+                    <label for="centralBankRate">Курс ЦБ РФ</label>
+                    <p id = "centralBankRate" data-th-text="${currency.centralBankRate}"></p>
+                    <label for="purchasePrice">Цена покупки</label>
+                    <p id = "purchasePrice" data-th-text="${currency.purchasePrice}"></p>
+                    <label for="sellingPrice">Цена продажи</label>
+                    <p id = "sellingPrice" data-th-text="${currency.sellingPrice}"></p>
+                    <label for="content">Описание</label>
+                    <p id = "content" data-th-text="${currency.content}"></p>
+                </div>
+                <div class="card-action" data-th-if="${@accountService.hasAuthority('REMOVE')}">
+                    <form data-th-action="@{/currencies/{id}/remove(id=${currency.id})}" method="post">
+                        <button class="waves-effect waves-light btn" type="submit">Удалить</button>
+                    </form>
+                    <a data-th-href="@{/currencies/{id}/edit (id=${currency.id}) }" class="waves-effect waves-light btn" type="submit">Редактировать</a>
+                </div>
+                <div class="card-action">
+
+                    <a data-th-href="@{/currencies/{id}/buy (id=${currency.id}) }" class="waves-effect waves-light btn" type="submit">Покупка валюты</a>
+                    <a data-th-href="@{/currencies/{id}/sell (id=${currency.id}) }" class="waves-effect waves-light btn" type="submit">Продажа валюты</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>

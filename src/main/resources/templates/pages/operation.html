@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title=${operation.type})"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title" data-th-text="${operation.type}"></span>
+                    <label for="currency">Валюта</label>
+                    <p id = "currency" data-th-text="${operation.currency}"></p>
+                    <label for="currency">Курс ЦБ РФ</label>
+                    <p id = "centralBankRate" data-th-text="${operation.centralBankRate}"></p>
+                    <label for="currency">Курс операции</label>
+                    <p id = "operationRate" data-th-text="${operation.operationRate}"></p>
+                    <label for="currency">Количество валюты</label>
+                    <p id = "count" data-th-text="${operation.count}"></p>
+                    <label for="currency">Сумма операции</label>
+                    <p id = "amount" data-th-text="${operation.amount}"></p>
+                    <label for="lastName">Клиент</label>
+                    <p id = "lastName" data-th-text="${operation.lastName}"></p>
+                    <p id = "firstName" data-th-text="${operation.firstName}"></p>
+                    <p id = "middleName" data-th-text="${operation.middleName}"></p>
+                    <label for="seriesDoc">Документ, удостоверяющий личность</label>
+                    <p id = "seriesDoc" data-th-text="${operation.seriesDoc}"></p>
+                    <p id = "numberDoc" data-th-text="${operation.numberDoc}"></p>
+                    <label for="content">Примечание</label>
+                    <p id = "content" data-th-text="${operation.content}"></p>
+                </div>
+                <div class="card-action" data-th-if="${@accountService.hasAuthority('REMOVE')}">
+                    <form data-th-action="@{/operations/{id}/remove(id=${operation.id})}" method="post">
+                        <button class="waves-effect waves-light btn" type="submit">Удалить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>

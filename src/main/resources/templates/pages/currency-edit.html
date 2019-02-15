@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Редактирование валюты')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>Редактирование валюты</h1>
+            <form data-th-action="@{/currencies/{id}/edit(id=${currency.id})}" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.name}" placeholder="Название валюты" id="name" name="name" type="text" class="validate" required>
+                        <label for="name">Название валюты</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.centralBankRate}" placeholder="Курс ЦБ РФ" id="centralBankRate" name="centralBankRate"
+                               type="text" class="validate" required>
+                        <label for="centralBankRate">Курс ЦБ РФ</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.purchasePrice}" placeholder="Цена продажи" id="purchasePrice" name="purchasePrice"
+                               type="text" class="validate" required>
+                        <label for="purchasePrice">Цена продажи</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.sellingPrice}" placeholder="Цена покупки" id="sellingPrice" name="sellingPrice"
+                               type="text" class="validate" required>
+                        <label for="sellingPrice">Цена покупки</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input data-th-value="${currency.content}" placeholder="Описание валюты" id="content" name="content" type="text" class="validate"
+                               required>
+                        <label for="content">Описание валюты</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn" type="submit">Сохранить</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>

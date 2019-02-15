@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Валюты')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>Валюты</h1>
+            <ul class="collection">
+                <li class="collection-item" data-th-each="currency : ${currencies}">
+                    <a data-th-href="@{/currencies/{id} (id=${currency.id}) }">
+                        <span data-th-text="${currency.name}"></span>
+                    </a>
+                </li>
+            </ul>
+            <a data-th-if="${@accountService.hasAuthority('ADD')}" data-th-href="@{/currencies/add}" class="waves-effect waves-light btn">Добавить валюту</a>
+            <a data-th-href="@{/operations}" class="waves-effect waves-light btn">Операции</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+
+</body>
+</html>

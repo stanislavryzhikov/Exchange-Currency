@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script>
+        function calculateAmount() {
+            var operationRateValue = parseFloat(document.getElementById('operationRate').value);
+            var countValue = parseFloat(document.getElementById('count').value);
+
+            var amountValue = parse(operationRateValue * countValue);
+
+            document.getElementById('amount').value.set(amountValue);
+        }
+        function calculateCount() {
+            var operationRateValue = parseFloat(document.getElementById('operationRate').value);
+            var amountValue = parseFloat(document.getElementById('amount').value);
+
+            var countValue = parse(amountValue/operationRateValue);
+
+            document.getElementById('count').value.set(countValue);
+        }
+    </script>
+</head>
+<body>
+<input id="operationRate">
+<input id="count" oninput="" onchange="calculateAmount();">
+<input id="amount" onchange="calculateCount();">
+</body>
+</html>

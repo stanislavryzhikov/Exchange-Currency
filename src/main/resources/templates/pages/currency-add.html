@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head data-th-replace="fragments/layout :: headFragment(title='Добавить валюту')"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 section">
+            <div class="right-align" data-th-include="fragments/layout :: logoutFragment"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h1>Добавить валюту</h1>
+            <form data-th-action="@{/currencies/add}" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Название валюты" id="name" name="name" type="text" class="validate"
+                               required>
+                        <label for="name">Название валюты</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Курс ЦБ РФ" id="centralBankRate" name="centralBankRate"
+                               type="text" class="validate" required>
+                        <label for="centralBankRate">Курс ЦБ РФ</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Цена покупки" id="purchasePrice" name="purchasePrice"
+                               type="text" class="validate" required>
+                        <label for="purchasePrice">Цена покупки</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Цена продажи" id="sellingPrice" name="sellingPrice"
+                               type="text" class="validate" required>
+                        <label for="sellingPrice">Цена продажи</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Описание валюты" id="content" name="content" type="text" class="validate"
+                               required>
+                        <label for="content">Описание валюты</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn" type="submit">Add</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div data-th-include="fragments/layout :: scriptsFragment" data-th-remove="tag"></div>
+</div>
+</body>
+</html>
