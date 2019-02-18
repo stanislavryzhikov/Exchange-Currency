@@ -73,20 +73,18 @@
                         <label for="amount">Сумма операции</label>
                     </div>
                 </div>
-                <h1>Клиент</h1>
-                <h2>Ф.И.О.</h2>
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите фамилию" id="lastName" name="lastName" type="text" class="validate"
                                required>
-                        <label for="lastName">Фамилия</label>
+                        <label for="lastName">Фамилия клиента</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите имя" id="firstName" name="firstName" type="text" class="validate"
                                required>
-                        <label for="firstName">Имя</label>
+                        <label for="firstName">Имя клиента</label>
                     </div>
                 </div>
                 <div class="row">
@@ -94,24 +92,23 @@
                         <input placeholder="Введите отчество" id="middleName" name="middleName" type="text"
                                class="validate"
                                required>
-                        <label for="middleName">Отчество</label>
+                        <label for="middleName">Отчество клиента</label>
                     </div>
                 </div>
-                <h2>Серия и номер паспорта</h2>
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите серию паспорта" id="seriesDoc" name="seriesDoc" type="text"
-                               class="validate"
+                               class="validate" maxlength="4" minlength="4"
                                required>
-                        <label for="seriesDoc">Серия паспорта</label>
+                        <label for="seriesDoc">Серия паспорта клиента</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите номер паспорта" id="numberDoc" name="numberDoc" type="text"
-                               class="validate"
+                               class="validate" maxlength="6" minlength="6"
                                required>
-                        <label for="numberDoc">Номер паспорта</label>
+                        <label for="numberDoc">Номер паспорта клиента</label>
                     </div>
                 </div>
                 <div class="row">
@@ -123,7 +120,7 @@
                 </div>
                 <button class="waves-effect waves-light btn" type="submit">Завершить операцию</button>
             </form>
-
+            <a data-th-href="@{/currencies}" class="waves-effect waves-light btn">Отмена операции</a>
         </div>
     </div>
 

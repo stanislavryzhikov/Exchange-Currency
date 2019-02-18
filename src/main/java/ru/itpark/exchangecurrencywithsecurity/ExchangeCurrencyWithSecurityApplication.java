@@ -25,7 +25,7 @@ public class ExchangeCurrencyWithSecurityApplication {
         var operationRepository = context.getBean(OperationRepository.class);
 
         //Операции
-        operationRepository.saveAll(List.of(new OperationEntity(0, "Тестовая продажа","USD", 65.55f, 67.44f,1,100,"Рыжикова", "Ангелина", "Викторовна", 6543, 123456, "Тестовая операция")));
+        operationRepository.saveAll(List.of(new OperationEntity(0, "Покупка валюты","EUR", 75.55f, 73.55f,16.12f,1185.63f,"Иванов", "Иван", "Иванович", 1242, 231123, "Тестовая операция")));
         //Начальные валюты
         currencyRepository.saveAll(List.of(new CurrencyEntity(0,"USD", 65.55f, 63.55f, 67.55f, "Доллар США")));
         currencyRepository.saveAll(List.of(new CurrencyEntity(0,"EUR", 75.55f, 73.55f, 77.55f, "ЕВРО")));

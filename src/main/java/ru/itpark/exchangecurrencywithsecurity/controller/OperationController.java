@@ -114,4 +114,5 @@ public class OperationController {
     public String operationsForm() {
         return "pages/currencies";
     }
+
 }

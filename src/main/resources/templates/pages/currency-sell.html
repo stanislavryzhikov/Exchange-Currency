@@ -61,20 +61,18 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Введите количество" id="count" name="count"
+                        <input id="count" name="count"
                                type="text" class="validate" onkeyup="calculateAmount();" required>
                         <label for="count">Количесво</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Введите сумму" id="amount" name="amount"
+                        <input id="amount" name="amount"
                                type="text" class="validate" onkeyup="calculateCount();" required>
                         <label for="amount">Сумма операции</label>
                     </div>
                 </div>
-                <h1>Клиент</h1>
-                <h2>Ф.И.О.</h2>
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите фамилию" id="lastName" name="lastName" type="text" class="validate"
@@ -97,11 +95,10 @@
                         <label for="middleName">Отчество</label>
                     </div>
                 </div>
-                <h2>Серия и номер паспорта</h2>
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите серию паспорта" id="seriesDoc" name="seriesDoc" type="text"
-                               class="validate"
+                               class="validate" maxlength="4" minlength="4"
                                required>
                         <label for="seriesDoc">Серия паспорта</label>
                     </div>
@@ -109,7 +106,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Введите номер паспорта" id="numberDoc" name="numberDoc" type="text"
-                               class="validate"
+                               class="validate" maxlength="6" minlength="6"
                                required>
                         <label for="numberDoc">Номер паспорта</label>
                     </div>
@@ -123,7 +120,7 @@
                 </div>
                 <button class="waves-effect waves-light btn" type="submit">Завершить операцию</button>
             </form>
-
+            <a data-th-href="@{/currencies}" class="waves-effect waves-light btn">Отмена операции</a>
         </div>
     </div>
 
